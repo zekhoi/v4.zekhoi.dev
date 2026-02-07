@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/components/layout/Footer';
 import PrivateProjectCard from '@/components/home/PrivateProjectCard';
@@ -101,13 +101,15 @@ export default async function WorksPage() {
                     index % 2 === 1 ? 'lg:order-2' : ''
                   }`}
                 >
-                  <div className="border border-black p-1 bg-white relative overflow-hidden">
+                  <div className="border border-black p-1 bg-white relative overflow-hidden aspect-video">
                     {item.ogImage ? (
-                      <img
-                        className="w-full grayscale hover:grayscale-0 transition-all duration-700 ease-in-out aspect-video object-cover"
+                      <Image
+                        className="grayscale hover:grayscale-0 transition-all duration-700 ease-in-out object-cover"
                         alt={item.title}
                         src={item.ogImage}
-                        loading="lazy"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 100vw"
+                        priority={index < 2} // Prioritize first 2 images
                       />
                     ) : (
                       <ProjectPlaceholder

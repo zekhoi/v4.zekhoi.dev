@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import ProjectPlaceholder from './ProjectPlaceholder';
 
 interface ProjectProps {
@@ -15,10 +16,12 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
       <div className="brutalist-card bg-white border border-black/10 p-1 aspect-video relative overflow-hidden">
         <div className="w-full h-full bg-zinc-100 flex items-center justify-center overflow-hidden relative">
           {project.image ? (
-            <img
+            <Image
               alt={project.title}
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-110 group-hover:scale-100 opacity-90"
               src={project.image}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
             <ProjectPlaceholder
