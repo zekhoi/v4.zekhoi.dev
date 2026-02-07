@@ -42,6 +42,17 @@ export default function Hero() {
             </div>
           ))}
         </div>
+        <div className="mt-12 mb-24">
+          <a
+            href="https://docs.google.com/document/d/1ZfDHKW1rYWNgZ1r4CyOhj0UM5dzw1SLRx1UJY3Z9IYI/export?format=pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-black px-6 py-3 text-xs uppercase tracking-widest font-mono hover:bg-black hover:text-white transition-all duration-200"
+          >
+            DOWNLOAD_RESUME
+            <span className="material-symbols-outlined text-sm">download</span>
+          </a>
+        </div>
         <button
           onClick={scrollToContent}
           className="absolute -bottom-24 left-1/2 -translate-x-1/2 text-[10px] text-black/20 tracking-widest flex flex-col items-center hover:text-black/60 transition-colors cursor-pointer z-50"
