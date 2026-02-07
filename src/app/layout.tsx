@@ -6,6 +6,7 @@ import Scanline from '@/components/shared/Scanline';
 import BlueprintBg from '@/components/shared/BlueprintBg';
 import Navbar from '@/components/layout/Navbar';
 import FixedIndicators from '@/components/layout/FixedIndicators';
+import MaterialSymbolsLoader from '@/components/shared/MaterialSymbolsLoader';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -152,11 +153,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        {/* Material Symbols font with optimal loading strategy */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-          rel="stylesheet"
-        />
+        <MaterialSymbolsLoader />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
