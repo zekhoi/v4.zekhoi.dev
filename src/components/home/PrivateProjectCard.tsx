@@ -7,6 +7,7 @@ interface PrivateProjectCardProps {
   year: string;
   tags: string[];
   orderReverse?: boolean;
+  compact?: boolean;
 }
 
 export default function PrivateProjectCard({
@@ -15,8 +16,61 @@ export default function PrivateProjectCard({
   description,
   year,
   tags,
-  orderReverse = false
+  orderReverse = false,
+  compact = false
 }: PrivateProjectCardProps) {
+  if (compact) {
+    return (
+      <div className="group">
+        <div className="brutalist-card bg-white border border-black/10 p-1 aspect-video relative overflow-hidden">
+          <div className="w-full h-full relative overflow-hidden border border-black/5">
+            <div
+              className="w-full h-full bg-white flex items-center justify-center relative overflow-hidden"
+              style={{
+                backgroundSize: '20px 20px',
+                backgroundImage:
+                  'linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px)'
+              }}
+            >
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-10">
+                <span className="material-symbols-outlined text-4xl md:text-5xl scale-125 opacity-20">
+                  security
+                </span>
+                <div className="text-center space-y-1">
+                  <h3 className="text-sm md:text-base font-bold uppercase tracking-[0.2em] bg-white border-y border-black px-4 py-1">
+                    RESTRICTED
+                  </h3>
+                </div>
+              </div>
+              <div className="absolute inset-0 flex flex-wrap opacity-[0.03] pointer-events-none text-[8px] leading-none select-none overflow-hidden">
+                {Array(500).fill('01').join(' ')}
+              </div>
+            </div>
+          </div>
+          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-2 py-1 text-[10px] border border-black/10 font-bold font-mono z-20 flex items-center gap-2">
+            <span>{unit}</span>
+            <span className="material-symbols-outlined text-[10px]">lock</span>
+          </div>
+        </div>
+
+        <div className="mt-4 flex justify-between items-start font-mono">
+          <div>
+            <h3 className="text-xl font-bold uppercase tracking-tight">
+              {title}
+            </h3>
+            <p className="text-[10px] text-black/50 mt-1 uppercase tracking-widest line-clamp-2 pr-4">
+              {description}
+            </p>
+          </div>
+          <div className="text-[9px] text-right text-black/40 border-l border-black/10 pl-4 shrink-0">
+            <p>{tags.slice(0, 2).join(' // ')}</p>
+            <p>ST_YEAR: {year}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <article
       className={`group relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-start ${

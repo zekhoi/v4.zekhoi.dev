@@ -2,29 +2,40 @@
 import React from 'react';
 import Link from 'next/link';
 import ProjectCard from './ProjectCard';
+import { PROJECTS } from '@/lib/data';
+import { getOgImage } from '@/lib/og-image';
+import PrivateProjectCard from './PrivateProjectCard';
 
-const projects = [
-  {
-    pid: '001_KOSTHUB',
-    title: 'KostHub Platform',
-    subtitle: 'Property Management System',
-    tech: 'NEXT.JS // POSTGRES',
-    year: '2023',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuDRLaN6q84wTWDd6KCCnayK12BHKuKbkFr_Ln09IzEOPBfpfZDotg_vTJWYJ2k58KbcSBwQpeJILrBOx8u03fbYwC05baMO1minsFhyUziBgnKnwojex5YXseCErLXCGVvQQpylyO8D4whKhO6gxUj1KoehGLCXdEy2LueoIKcsoJMQacBeg3cbGKx3Hitf0AxFyBe6D75UcXAt3_swmc1UNW4KzqaAvb5hu3pHPj0i_E2whwcrqPCE90sZcJWGjjCjXECwZxxdF1W-'
-  },
-  {
-    pid: '002_IO_ANALYSIS',
-    title: 'IO Analysis Tool',
-    subtitle: 'Economic Calculation Engine',
-    tech: 'NODE.JS // NUXT',
-    year: '2022',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuAdrDEfxpWUXWExrhvw0_yDwTfj1Y6ur_bvkOl0SzM_1XxvUmpc_NIC9A50rbSblIJhrdk_-7RDWS83kZEM-MX7XrKissIPQ0ODkxmpYAfmACQusKnT_lu2evVNuW41ScF5u5l-OZbUHzIq3VYIxI_sfEVH24E_vyr_fXaBT3Zyoi67_lnUXu1Qv26InWBTfvRBS5yeg4eGV-vS9xBGb3X5HNQNfmtZ5XOBUI5j-S3Be68AXVwzgar2KkNqAcrn3Z-zMGQYXiZITPc2'
-  }
-];
+export default async function ProjectLog() {
+  const slicedProjects = PROJECTS.slice(0, 2);
 
-export default function ProjectLog() {
+  // Fetch dynamic OG images for consistency with Works page
+  const projectsWithOg = await Promise.all(
+    slicedProjects.map(async (item) => {
+      let ogImage = item.image; // default to static image
+
+      if (item.type === 'public' && item.link) {
+        const fetchedOg = await getOgImage(item.link);
+        if (fetchedOg) {
+          ogImage = fetchedOg;
+        }
+      }
+
+      return {
+        id: item.id,
+        unit: item.pid,
+        pid: item.pid,
+        title: item.title,
+        subtitle: item.description,
+        tech: item.tags.slice(0, 2).join(' // '),
+        tags: item.tags,
+        year: item.year,
+        image: ogImage || undefined,
+        type: item.type // Pass the type (public/private) to the card
+      };
+    })
+  );
+
   return (
     <section
       id="project-log"
@@ -52,9 +63,21 @@ export default function ProjectLog() {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {projects.map((project) => (
-          <ProjectCard key={project.pid} project={project} />
-        ))}
+        {projectsWithOg.map((project) =>
+          project.type === 'public' ? (
+            <ProjectCard key={project.id} project={project} />
+          ) : (
+            <PrivateProjectCard
+              key={project.id}
+              unit={project.unit}
+              title={project.title}
+              description={project.subtitle}
+              year={project.year}
+              tags={project.tags}
+              compact={true}
+            />
+          )
+        )}
       </div>
     </section>
   );
