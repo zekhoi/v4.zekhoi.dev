@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="text-center relative">
         <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-px h-12 bg-black/10"></div>
         <p className="text-sm tracking-[0.5em] text-black/40 mb-8 uppercase font-mono">
-          Product Engineer & Backend Specialist
+          Product Engineer & Automation Specialist
         </p>
         <h1 className="font-display font-black text-[9vw] leading-[0.85] tracking-tighter uppercase glitch text-black mb-4">
           KHOIRONI
@@ -27,6 +27,7 @@ export default function Hero() {
           {[
             { icon: 'code', label: 'FRONTEND' },
             { icon: 'terminal', label: 'BACKEND' },
+            { icon: 'smart_toy', label: 'AUTOMATION' },
             { icon: 'dns', label: 'DEVOPS' },
             { icon: 'memory', label: 'AI_SYSTEMS' }
           ].map((item) => (

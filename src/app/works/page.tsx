@@ -183,7 +183,7 @@ export default function WorksPage() {
           <h2 className="text-xs tracking-[0.4em] text-black/40 mb-12 uppercase font-mono">
             Inquiry
           </h2>
-          <p className="font-display text-2xl md:text-5xl leading-none uppercase text-black italic">
+          <p className="font-display text-2xl md:text-5xl leading-tight uppercase text-black italic">
             Seeking projects that push the{' '}
             <span className="bg-black text-white px-3 not-italic">
               boundaries

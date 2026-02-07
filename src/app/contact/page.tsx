@@ -62,6 +62,22 @@ export default function ContactPage() {
                   </p>
                   <p className="text-sm font-bold uppercase">REMOTE / GLOBAL</p>
                 </div>
+                <div>
+                  <p className="text-[10px] text-black/40 mb-2 tracking-[0.2em] uppercase">
+                    RESUME
+                  </p>
+                  <a
+                    href="https://docs.google.com/document/d/1ZfDHKW1rYWNgZ1r4CyOhj0UM5dzw1SLRx1UJY3Z9IYI/export?format=pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-bold uppercase hover:underline flex items-center gap-2"
+                  >
+                    DOWNLOAD_PDF
+                    <span className="material-symbols-outlined text-xs">
+                      download
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

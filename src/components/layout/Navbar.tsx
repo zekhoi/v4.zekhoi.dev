@@ -27,19 +27,19 @@ export default function Navbar() {
             </p>
           </div>
           <div className="pointer-events-auto flex items-center gap-1 uppercase text-xs tracking-[0.2em]">
-            <div className="hidden md:flex items-center gap-0 border border-black/10 bg-white/80 backdrop-blur-md">
+            <div className="hidden md:flex items-center gap-0 border border-black/10 bg-white">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="hover:bg-black hover:text-white px-6 py-4 transition-colors border-r border-black/10"
+                  className="hover:bg-black/5 px-6 py-4 transition-colors border-r border-black/10 hover:font-bold flex items-center gap-2"
                 >
                   {item.label}
                 </Link>
               ))}
               <Link
                 href="/contact"
-                className="bg-black text-white px-8 py-4 font-bold hover:bg-[var(--color-brutal-primary)] transition-all"
+                className="bg-black text-white px-6 py-4 font-bold hover:bg-[var(--color-brutal-primary)] transition-all flex items-center gap-2"
               >
                 CONTACT_ME
               </Link>

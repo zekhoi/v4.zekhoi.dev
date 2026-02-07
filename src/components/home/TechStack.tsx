@@ -12,11 +12,11 @@ const stack = [
   },
   {
     category: 'INFRASTRUCTURE',
-    items: ['Docker', 'Kubernetes', 'Ansible', 'Nginx', 'PostgreSQL', 'Git']
+    items: ['Docker', 'Ansible', 'Nginx', 'PostgreSQL', 'Git']
   },
   {
     category: 'SPECIALIZED',
-    items: ['RAG / LLM', 'Browser Automation', 'REST API', 'Microservices']
+    items: ['Automation', 'REST API', 'RAG / LLM']
   }
 ];
 
