@@ -63,20 +63,20 @@ export default async function WorksPage() {
       <Navbar />
       <FixedIndicators />
 
-      <main className="relative z-10 w-full flex flex-col items-center min-h-screen">
-        <header className="w-full max-w-7xl px-6 md:px-12 pt-48 pb-24 border-b border-black/10">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8">
-            <div className="border-l-4 border-black pl-8">
+      <main className="relative z-10 min-h-screen pt-32 md:pt-48 pb-16 md:pb-32">
+        <header className="w-full max-w-7xl mx-auto px-6 md:px-12 pb-12 md:pb-24 border-b border-black/10 mb-12 md:mb-24">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+            <div className="border-l-4 border-black pl-4 md:pl-8">
               <span className="text-xs tracking-[0.5em] text-black/40 uppercase block mb-4 font-mono">
-                Project Gallery
+                Project_Gallery
               </span>
-              <h1 className="font-display font-black text-6xl md:text-8xl leading-[0.8] tracking-tighter uppercase">
+              <h1 className="font-display font-black text-4xl md:text-8xl leading-[0.8] tracking-tighter uppercase">
                 SELECTED
                 <br />
                 WORKS
               </h1>
             </div>
-            <div className="text-[10px] text-black/60 uppercase text-right leading-relaxed tracking-widest mb-2 font-mono">
+            <div className="text-[10px] text-black/60 uppercase text-left md:text-right leading-relaxed tracking-widest mb-1 md:mb-2 font-mono w-full md:w-auto">
               Displaying: 03 Curated Units
               <br />
               Filter: All_Architectures
@@ -84,7 +84,7 @@ export default async function WorksPage() {
           </div>
         </header>
 
-        <section className="w-full max-w-7xl px-6 md:px-12 py-24 space-y-48">
+        <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-24 space-y-24 md:space-y-48">
           {processedProjects.map((item, index) => {
             if (item.isPrivate) {
               return (
@@ -182,7 +182,7 @@ export default async function WorksPage() {
           })}
         </section>
 
-        <section className="w-full max-w-4xl px-6 py-48 text-center">
+        <section className="w-full max-w-4xl mx-auto py-24 md:py-48 text-center">
           <h2 className="text-xs tracking-[0.4em] text-black/40 mb-12 uppercase font-mono">
             Inquiry
           </h2>

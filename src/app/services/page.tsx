@@ -39,13 +39,13 @@ export default function ServicesPage() {
       <BlueprintBg />
       <Navbar />
 
-      <main className="relative z-10 min-h-screen pt-48 pb-32">
-        <header className="w-full max-w-7xl mx-auto px-6 md:px-12 mb-24">
-          <div className="border-l-4 border-black pl-8">
+      <main className="relative z-10 min-h-screen pt-32 md:pt-48 pb-16 md:pb-32">
+        <header className="max-w-7xl mx-auto px-6 md:px-12 pb-12 md:pb-24 border-b border-black/10 mb-12 md:mb-24">
+          <div className="border-l-4 border-black pl-4 md:pl-8">
             <p className="text-xs tracking-[0.4em] text-black/40 mb-4 uppercase font-mono">
-              Operational Capabilities
+              Operational_Capabilities
             </p>
-            <h1 className="font-display font-black text-6xl md:text-8xl leading-[0.8] tracking-tighter uppercase mb-6">
+            <h1 className="font-display font-black text-4xl md:text-8xl leading-[0.8] tracking-tighter uppercase mb-6">
               TECHNICAL
               <br />
               SPECIFICATION

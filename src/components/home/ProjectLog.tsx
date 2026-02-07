@@ -41,16 +41,16 @@ export default async function ProjectLog() {
       id="project-log"
       className="w-full max-w-7xl px-6 md:px-12 py-32 border-t border-black/5 bg-white/50 backdrop-blur-sm"
     >
-      <div className="flex justify-between items-end mb-16 border-b border-black pb-4">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 border-b border-black pb-4 gap-4">
         <Link href="/works" className="group flex items-center gap-4">
-          <h2 className="font-display font-bold text-5xl uppercase italic tracking-tighter group-hover:text-black/60 transition-colors">
+          <h2 className="font-display font-bold text-3xl md:text-5xl uppercase italic tracking-tighter group-hover:text-black/60 transition-colors">
             PROJECT_LOG
           </h2>
-          <span className="material-symbols-outlined text-4xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+          <span className="material-symbols-outlined text-3xl md:text-4xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hidden md:block">
             arrow_forward
           </span>
         </Link>
-        <div className="flex flex-col items-end gap-1">
+        <div className="flex flex-row md:flex-col items-center md:items-end gap-4 md:gap-1 w-full md:w-auto justify-between md:justify-end">
           <span className="text-[10px] font-mono opacity-50 tracking-[0.3em]">
             ENTRIES [02]
           </span>

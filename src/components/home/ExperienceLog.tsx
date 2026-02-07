@@ -28,8 +28,8 @@ const experiences = [
 export default function ExperienceLog() {
   return (
     <section className="w-full max-w-7xl px-6 md:px-12 pt-32 pb-16 border-t border-black bg-white/50 backdrop-blur-sm relative overflow-hidden">
-      <div className="flex justify-between items-baseline mb-16 border-b border-black pb-4">
-        <h2 className="font-display font-bold text-5xl uppercase italic tracking-tighter">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 border-b border-black pb-4 gap-4">
+        <h2 className="font-display font-bold text-3xl md:text-5xl uppercase italic tracking-tighter">
           EXPERIENCE_LOG
         </h2>
         <span className="text-[10px] font-mono opacity-50 tracking-[0.3em]">
@@ -40,7 +40,7 @@ export default function ExperienceLog() {
         {experiences.map((exp, index) => (
           <div
             key={index}
-            className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-12 border-b border-black hover:bg-black/5 transition-colors group"
+            className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-8 md:py-12 border-b border-black hover:bg-black/5 transition-colors group"
           >
             <div className="md:col-span-2 text-xs font-bold tracking-widest text-black/40 uppercase">
               {exp.period}
