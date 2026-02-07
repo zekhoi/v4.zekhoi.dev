@@ -3,16 +3,15 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Works | Khoironi Kurnia Syah',
   description:
-    'Explore my portfolio of innovative systems architecture projects including Neon-Cloud OS, Void Analytics, and Grid Protocol.',
+    'Portfolio of full-stack web projects including LMS platforms, AI automation tools, and responsive web applications.',
   keywords: [
     'portfolio',
     'projects',
     'next.js',
-    'rust',
-    'webassembly',
-    'systems architecture',
-    'd3.js',
-    'webrtc'
+    'react',
+    'full-stack development',
+    'web development',
+    'node.js'
   ],
   alternates: {
     canonical: 'https://zekhoi.dev/works'
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Works | Khoironi Kurnia Syah',
     description:
-      'Explore my portfolio of innovative systems architecture and full-stack projects.',
+      'Portfolio of full-stack web projects and product development work.',
     url: 'https://zekhoi.dev/works',
     type: 'website'
   }
@@ -33,50 +32,86 @@ import BlueprintBg from '@/components/shared/BlueprintBg';
 import Navbar from '@/components/layout/Navbar';
 import FixedIndicators from '@/components/layout/FixedIndicators';
 import Footer from '@/components/layout/Footer';
+import PrivateProjectCard from '@/components/home/PrivateProjectCard';
+import ProjectPlaceholder from '@/components/home/ProjectPlaceholder';
+import { getOgImage } from '@/lib/og-image';
 
 const WORK_ITEMS = [
   {
     id: '01',
     unit: 'Unit_001',
-    title: 'Neon-Cloud OS',
+    title: 'Supreme Solar',
     description:
-      'A browser-based operating system designed for edge computing. It features a custom micro-kernel built in Rust, enabling low-latency execution of containerized web applications directly in the client.',
-    tags: ['NEXT.JS', 'RUST (WASM)', 'WEBGL', 'DOCKER'],
+      'Full-stack development for an Indonesian solar energy company. Built responsive web platform with product catalog, project showcase, and customer inquiry system. Integrated with backend APIs for lead management.',
+    tags: ['NEXT.JS', 'REACT', 'TYPESCRIPT', 'TAILWIND'],
     year: '2024',
-    link: '#',
-    linkText: 'View_Deployment',
+    link: 'https://supremesolar.id',
+    linkText: 'Visit_Site',
     image:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuDRLaN6q84wTWDd6KCCnayK12BHKuKbkFr_Ln09IzEOPBfpfZDotg_vTJWYJ2k58KbcSBwQpeJILrBOx8u03fbYwC05baMO1minsFhyUziBgnKnwojex5YXseCErLXCGVvQQpylyO8D4whKhO6gxUj1KoehGLCXdEy2LueoIKcsoJMQacBeg3cbGKx3Hitf0AxFyBe6D75UcXAt3_swmc1UNW4KzqaAvb5hu3pHPj0i_E2whwcrqPCE90sZcJWGjjCjXECwZxxdF1W-'
   },
   {
     id: '02',
     unit: 'Unit_002',
-    title: 'Void Analytics',
+    title: 'Bakti Komdigi LMS',
     description:
-      'A high-performance data visualization engine capable of processing 1M+ data points per second. Utilizing custom shaders for rendering complex topologies in real-time.',
-    tags: ['D3.JS', 'THREE.JS', 'TYPESCRIPT', 'GLSL'],
-    year: '2023',
-    link: '#',
-    linkText: 'Exploration_Report',
+      'Learning management system with video hosting capabilities. Developed frontend UI components for course management, student progress tracking, and video player integration. Collaborated on backend API integration for course delivery platform.',
+    tags: ['REACT', 'TYPESCRIPT', 'NODE.JS', 'POSTGRESQL'],
+    year: '2024',
+    link: 'https://baktikomdigi.id/',
+    linkText: 'View_Platform',
     image:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuAdrDEfxpWUXWExrhvw0_yDwTfj1Y6ur_bvkOl0SzM_1XxvUmpc_NIC9A50rbSblIJhrdk_-7RDWS83kZEM-MX7XrKissIPQ0ODkxmpYAfmACQusKnT_lu2evVNuW41ScF5u5l-OZbUHzIq3VYIxI_sfEVH24E_vyr_fXaBT3Zyoi67_lnUXu1Qv26InWBTfvRBS5yeg4eGV-vS9xBGb3X5HNQNfmtZ5XOBUI5j-S3Be68AXVwzgar2KkNqAcrn3Z-zMGQYXiZITPc2'
   },
   {
     id: '03',
     unit: 'Unit_003',
-    title: 'Grid Protocol',
+    title: 'Agent AI',
     description:
-      'Decentralized messaging infrastructure leveraging WebRTC for true peer-to-peer communication. Implements a double-ratchet encryption protocol for maximum security.',
-    tags: ['WEBRTC', 'NODE.JS', 'REDIS', 'GO'],
-    year: '2023',
-    link: '#',
-    linkText: 'Protocol_Specs',
+      'AI-powered agent platform for automation and task management. Built product interface for agent configuration, monitoring, and analytics. Integrated LLM APIs for intelligent task execution and workflow automation.',
+    tags: ['NEXT.JS', 'TYPESCRIPT', 'OPENAI_API', 'TAILWIND'],
+    year: '2024',
+    link: 'https://agentai.ai/',
+    linkText: 'Explore_Platform',
     image:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuBuHFZqO3KWwmXqeSWxsGxGdA4QjNOApeB5b79tfXFjJK14MbKp5LnwaROfsiLarrGoPGAsAs7YaNrvogNCb8PlEcpuwGjLpYN0gVuDuSFUVjKIjBND6ATKOT_UpzowoCpp0mqnfS_3mqpU6ITthYD2lKEskNWiqtA5oY3N50gWVJnsuR26iwmCI5I2TPHBfpYvtBk47pbb1hFKa2fXo9ZzxUxqlD-rdjcKLhsUkoP7tCjw03ya9EFxRGEYaVdliZGAIzSNq-YoVByb'
+  },
+  {
+    id: '04',
+    unit: 'Unit_004',
+    title: 'Capacity Building',
+    description:
+      'Educational organization platform for professional development programs. Developed course management dashboard, participant tracking system, and content delivery interface. Implemented responsive design for accessibility across devices.',
+    tags: ['REACT', 'JAVASCRIPT', 'NODE.JS', 'MONGODB'],
+    year: '2023',
+    link: 'https://capacity-building.org/',
+    linkText: 'View_Portal',
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuAdrDEfxpWUXWExrhvw0_yDwTfj1Y6ur_bvkOl0SzM_1XxvUmpc_NIC9A50rbSblIJhrdk_-7RDWS83kZEM-MX7XrKissIPQ0ODkxmpYAfmACQusKnT_lu2evVNuW41ScF5u5l-OZbUHzIq3VYIxI_sfEVH24E_vyr_fXaBT3Zyoi67_lnUXu1Qv26InWBTfvRBS5yeg4eGV-vS9xBGb3X5HNQNfmtZ5XOBUI5j-S3Be68AXVwzgar2KkNqAcrn3Z-zMGQYXiZITPc2'
   }
 ];
 
-export default function WorksPage() {
+const PRIVATE_PROJECTS = [
+  {
+    id: '05',
+    unit: 'Unit_005',
+    title: 'Social Media Automation',
+    description:
+      'Private application for automating social media scheduling and posting. Built scheduling dashboard with calendar interface, content management tools, and analytics integration. Implemented automation workflows for multiple social platforms.',
+    tags: ['REACT', 'TYPESCRIPT', 'EXPRESS', 'CRON_JOBS'],
+    year: '2023'
+  }
+];
+
+export default async function WorksPage() {
+  // Fetch og:images for all projects at runtime
+  const workItemsWithOg = await Promise.all(
+    WORK_ITEMS.map(async (item) => ({
+      ...item,
+      ogImage: await getOgImage(item.link)
+    }))
+  );
+
   return (
     <>
       <Scanline />
@@ -94,7 +129,7 @@ export default function WorksPage() {
               <h1 className="font-display font-black text-6xl md:text-8xl leading-[0.8] tracking-tighter uppercase">
                 SELECTED
                 <br />
-                WORKS_
+                WORKS
               </h1>
             </div>
             <div className="text-[10px] text-black/60 uppercase text-right leading-relaxed tracking-widest mb-2 font-mono">
@@ -106,7 +141,8 @@ export default function WorksPage() {
         </header>
 
         <section className="w-full max-w-7xl px-6 md:px-12 py-24 space-y-48">
-          {WORK_ITEMS.map((item, index) => (
+          {/* Public Projects */}
+          {workItemsWithOg.map((item, index) => (
             <article
               key={item.id}
               className="group relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
@@ -118,11 +154,20 @@ export default function WorksPage() {
                 }`}
               >
                 <div className="border border-black p-1 bg-white relative overflow-hidden">
-                  <img
-                    className="w-full grayscale hover:grayscale-0 transition-all duration-700 ease-in-out aspect-video object-cover"
-                    alt={item.title}
-                    src={item.image}
-                  />
+                  {item.ogImage ? (
+                    <img
+                      className="w-full grayscale hover:grayscale-0 transition-all duration-700 ease-in-out aspect-video object-cover"
+                      alt={item.title}
+                      src={item.ogImage}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <ProjectPlaceholder
+                      title={item.title}
+                      unit={item.unit}
+                      year={item.year}
+                    />
+                  )}
                   <div className="absolute top-6 left-6 bg-black text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest font-mono">
                     {item.unit}
                   </div>
@@ -176,6 +221,18 @@ export default function WorksPage() {
                 </div>
               </div>
             </article>
+          ))}
+
+          {/* Private Projects */}
+          {PRIVATE_PROJECTS.map((project) => (
+            <PrivateProjectCard
+              key={project.id}
+              unit={project.unit}
+              title={project.title}
+              description={project.description}
+              year={project.year}
+              tags={project.tags}
+            />
           ))}
         </section>
 
