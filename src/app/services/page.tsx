@@ -26,21 +26,12 @@ export const metadata: Metadata = {
 };
 
 import React from 'react';
-import Scanline from '@/components/shared/Scanline';
-import BlueprintBg from '@/components/shared/BlueprintBg';
-import Navbar from '@/components/layout/Navbar';
-import FixedIndicators from '@/components/layout/FixedIndicators';
 import Footer from '@/components/layout/Footer';
 import TechStack from '@/components/home/TechStack';
 
 export default function ServicesPage() {
   return (
     <>
-      <Scanline />
-      <BlueprintBg />
-      <Navbar />
-      <FixedIndicators />
-
       <main className="relative z-10 min-h-screen pt-32 md:pt-48 pb-16 md:pb-32">
         <header className="max-w-7xl mx-auto px-6 md:px-12 pb-12 md:pb-24 border-b border-black/10 mb-12 md:mb-24">
           <div className="border-l-4 border-black pl-4 md:pl-8">

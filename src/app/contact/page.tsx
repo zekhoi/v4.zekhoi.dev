@@ -17,20 +17,11 @@ export const metadata: Metadata = {
 };
 
 import React from 'react';
-import Scanline from '@/components/shared/Scanline';
-import BlueprintBg from '@/components/shared/BlueprintBg';
-import Navbar from '@/components/layout/Navbar';
-import FixedIndicators from '@/components/layout/FixedIndicators';
 import Footer from '@/components/layout/Footer';
 
 export default function ContactPage() {
   return (
     <>
-      <Scanline />
-      <BlueprintBg />
-      <Navbar />
-      <FixedIndicators />
-
       <main className="relative z-10 pt-48 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Sidebar / Info Column */}

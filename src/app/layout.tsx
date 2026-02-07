@@ -2,6 +2,11 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Space_Grotesk, Inter } from 'next/font/google';
 import './globals.css';
 
+import Scanline from '@/components/shared/Scanline';
+import BlueprintBg from '@/components/shared/BlueprintBg';
+import Navbar from '@/components/layout/Navbar';
+import FixedIndicators from '@/components/layout/FixedIndicators';
+
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 const geistSans = Geist({
@@ -123,6 +128,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased bg-background-light font-mono text-black selection:bg-black selection:text-white overflow-x-hidden curser-crosshair`}
       >
+        <Scanline />
+        <BlueprintBg />
+        <Navbar />
+        <FixedIndicators />
         {children}
       </body>
     </html>

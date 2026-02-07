@@ -1,9 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import Scanline from '@/components/shared/Scanline';
-import BlueprintBg from '@/components/shared/BlueprintBg';
-import Navbar from '@/components/layout/Navbar';
 
 export default function Error({
   error,
@@ -18,10 +15,6 @@ export default function Error({
 
   return (
     <>
-      <Scanline />
-      <BlueprintBg />
-      <Navbar />
-
       <main className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center p-6 pt-24 md:pt-0">
         <div className="w-full max-w-6xl">
           <div className="mb-8">

@@ -1,15 +1,8 @@
 import Link from 'next/link';
-import Scanline from '@/components/shared/Scanline';
-import BlueprintBg from '@/components/shared/BlueprintBg';
-import Navbar from '@/components/layout/Navbar';
 
 export default function NotFound() {
   return (
     <>
-      <Scanline />
-      <BlueprintBg />
-      <Navbar />
-
       {/* Broken Footer Status */}
       <div className="fixed bottom-0 left-0 w-full z-40 p-6 md:p-12 pointer-events-none flex justify-between items-end">
         <div className="pointer-events-auto bg-white border border-black p-2 text-[10px] uppercase flex flex-col gap-1">
