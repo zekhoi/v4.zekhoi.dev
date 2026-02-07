@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono, Space_Grotesk, Inter } from 'next/font/google';
 import './globals.css';
 
@@ -7,21 +7,35 @@ import BlueprintBg from '@/components/shared/BlueprintBg';
 import Navbar from '@/components/layout/Navbar';
 import FixedIndicators from '@/components/layout/FixedIndicators';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true
+};
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap'
+});
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap'
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap'
 });
 
 const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap'
 });
 
 const baseUrl = 'https://zekhoi.dev';
@@ -138,6 +152,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        {/* Material Symbols font with optimal loading strategy */}
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
@@ -148,7 +163,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased bg-background-light font-mono text-black selection:bg-black selection:text-white overflow-x-hidden curser-crosshair`}
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased bg-background-light font-mono text-black selection:bg-black selection:text-white overflow-x-hidden cursor-crosshair`}
       >
         <Scanline />
         <BlueprintBg />

@@ -1,0 +1,30 @@
+# pnpm configuration for optimal performance
+
+# Use hardlink for better performance
+node-linker = hardlink
+
+# Shamefully hoist only explicit dependencies
+shamefully-hoist = false
+
+# Enable store optimization
+store-dir = .pnpm-store
+
+# Use lockfile v5 (more efficient)
+lockfile-version = 5
+
+# Strict peer dependencies checking
+strict-peer-dependencies = true
+
+# Auto-install peer dependencies
+auto-install-peers = true
+
+# Don't change symlink settings
+symlink = true
+
+# Enable recursive install
+recursive = true
+
+# Package import access
+public-hoist-pattern[] = *eslint*
+public-hoist-pattern[] = *prettier*
+public-hoist-pattern[] = @tailwindcss/*
