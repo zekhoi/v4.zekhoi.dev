@@ -16,8 +16,6 @@ export const metadata: Metadata = {
   }
 };
 
-('use client');
-
 import React from 'react';
 import Scanline from '@/components/shared/Scanline';
 import BlueprintBg from '@/components/shared/BlueprintBg';

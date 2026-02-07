@@ -15,8 +15,6 @@ export const metadata: Metadata = {
   }
 };
 
-('use client');
-
 import React from 'react';
 import Link from 'next/link';
 import Scanline from '@/components/shared/Scanline';
