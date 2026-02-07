@@ -1,4 +1,21 @@
-'use client';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Archive | Khoironi Kurnia Syah',
+  description:
+    'Archive of past projects and technical explorations. A comprehensive history of my work across various technologies and domains.',
+  alternates: {
+    canonical: 'https://zekhoi.dev/archive'
+  },
+  openGraph: {
+    title: 'Archive | Khoironi Kurnia Syah',
+    description: 'Archive of past projects and technical explorations.',
+    url: 'https://zekhoi.dev/archive',
+    type: 'website'
+  }
+};
+
+('use client');
 
 import React from 'react';
 import Link from 'next/link';

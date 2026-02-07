@@ -1,4 +1,32 @@
-'use client';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Works | Khoironi Kurnia Syah',
+  description:
+    'Explore my portfolio of innovative systems architecture projects including Neon-Cloud OS, Void Analytics, and Grid Protocol.',
+  keywords: [
+    'portfolio',
+    'projects',
+    'next.js',
+    'rust',
+    'webassembly',
+    'systems architecture',
+    'd3.js',
+    'webrtc'
+  ],
+  alternates: {
+    canonical: 'https://zekhoi.dev/works'
+  },
+  openGraph: {
+    title: 'Works | Khoironi Kurnia Syah',
+    description:
+      'Explore my portfolio of innovative systems architecture and full-stack projects.',
+    url: 'https://zekhoi.dev/works',
+    type: 'website'
+  }
+};
+
+('use client');
 
 import React from 'react';
 import Link from 'next/link';

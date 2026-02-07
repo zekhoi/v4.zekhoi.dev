@@ -1,0 +1,8 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /.next
+
+# Sitemaps
+Sitemap: https://zekhoi.dev/sitemap.xml

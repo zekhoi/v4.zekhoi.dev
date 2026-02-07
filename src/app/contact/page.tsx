@@ -1,4 +1,22 @@
-'use client';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact | Khoironi Kurnia Syah',
+  description:
+    'Get in touch with me for projects, consulting, or collaborations. Available for remote and global work.',
+  alternates: {
+    canonical: 'https://zekhoi.dev/contact'
+  },
+  openGraph: {
+    title: 'Contact | Khoironi Kurnia Syah',
+    description:
+      "Available for projects, consulting, and collaborations. Let's build something amazing together.",
+    url: 'https://zekhoi.dev/contact',
+    type: 'website'
+  }
+};
+
+('use client');
 
 import React from 'react';
 import Scanline from '@/components/shared/Scanline';
@@ -35,11 +53,8 @@ export default function ContactPage() {
                     COMM_CHANNELS
                   </p>
                   <div className="flex flex-col gap-1 text-sm font-bold uppercase">
-                    <a
-                      className="hover:underline"
-                      href="mailto:hello@zekhoi.dev"
-                    >
-                      HELLO@ZEKHOI.DEV
+                    <a className="hover:underline" href="mailto:me@zekhoi.dev">
+                      ME@ZEKHOI.DEV
                     </a>
                   </div>
                 </div>

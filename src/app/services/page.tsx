@@ -1,4 +1,31 @@
-'use client';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Services | Khoironi Kurnia Syah',
+  description:
+    'Technical consulting and development services including system architecture, backend development, and performance optimization.',
+  keywords: [
+    'technical consulting',
+    'system architecture',
+    'backend development',
+    'performance optimization',
+    'database design',
+    'devops',
+    'cloud infrastructure'
+  ],
+  alternates: {
+    canonical: 'https://zekhoi.dev/services'
+  },
+  openGraph: {
+    title: 'Services | Khoironi Kurnia Syah',
+    description:
+      'Technical consulting and development services for high-performance systems.',
+    url: 'https://zekhoi.dev/services',
+    type: 'website'
+  }
+};
+
+('use client');
 
 import React from 'react';
 import Scanline from '@/components/shared/Scanline';
