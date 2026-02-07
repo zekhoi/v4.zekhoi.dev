@@ -1,6 +1,3 @@
-// src/components/home/ExperienceLog.tsx
-import React from 'react';
-
 const experiences = [
   {
     period: 'AUG 2023 - PRESENT',

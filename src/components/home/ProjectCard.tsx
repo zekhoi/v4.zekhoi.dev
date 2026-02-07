@@ -1,5 +1,3 @@
-// src/components/home/ProjectCard.tsx
-import React from 'react';
 import ProjectPlaceholder from './ProjectPlaceholder';
 
 interface ProjectProps {

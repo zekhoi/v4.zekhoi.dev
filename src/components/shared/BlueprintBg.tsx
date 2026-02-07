@@ -1,6 +1,3 @@
-// src/components/shared/BlueprintBg.tsx
-import React from 'react';
-
 export default function BlueprintBg() {
   return (
     <div className="blueprint-bg animate-slow-spin-scale">

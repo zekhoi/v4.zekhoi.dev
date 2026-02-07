@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface ProjectPlaceholderProps {
   title: string;
   unit: string;

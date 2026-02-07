@@ -1,6 +1,3 @@
-// src/components/home/Philosophy.tsx
-import React from 'react';
-
 export default function Philosophy() {
   return (
     <section className="w-full max-w-4xl px-6 pt-16 pb-32 text-center bg-white/40 backdrop-blur-md relative overflow-hidden">

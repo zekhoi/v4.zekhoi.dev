@@ -1,6 +1,3 @@
-// src/components/home/TechStack.tsx
-import React from 'react';
-
 const stack = [
   {
     category: 'LANGUAGES',

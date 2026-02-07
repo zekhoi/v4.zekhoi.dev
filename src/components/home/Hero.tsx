@@ -1,7 +1,4 @@
-// src/components/home/Hero.tsx
 'use client';
-
-import React from 'react';
 
 export default function Hero() {
   const scrollToContent = () => {

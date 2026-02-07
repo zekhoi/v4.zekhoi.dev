@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface PrivateProjectCardProps {
   unit: string;
   title: string;

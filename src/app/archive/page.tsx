@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: 'Archive | Khoironi Kurnia Syah',
@@ -14,10 +16,6 @@ export const metadata: Metadata = {
     type: 'website'
   }
 };
-
-import React from 'react';
-import Link from 'next/link';
-import Footer from '@/components/layout/Footer';
 
 const ARCHIVE_ITEMS = [
   {

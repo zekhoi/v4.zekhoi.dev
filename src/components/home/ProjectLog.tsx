@@ -1,5 +1,3 @@
-// src/components/home/ProjectLog.tsx
-import React from 'react';
 import Link from 'next/link';
 import ProjectCard from './ProjectCard';
 import { PROJECTS } from '@/lib/data';

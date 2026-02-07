@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Footer from '@/components/layout/Footer';
+import ContactForm from '@/components/contact/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact | Khoironi Kurnia Syah',
@@ -15,10 +17,6 @@ export const metadata: Metadata = {
     type: 'website'
   }
 };
-
-import React from 'react';
-import Footer from '@/components/layout/Footer';
-import ContactForm from '@/components/contact/ContactForm';
 
 export default function ContactPage() {
   return (

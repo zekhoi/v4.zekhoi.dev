@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Footer from '@/components/layout/Footer';
+import TechStack from '@/components/home/TechStack';
 
 export const metadata: Metadata = {
   title: 'Services | Khoironi Kurnia Syah',
@@ -24,10 +26,6 @@ export const metadata: Metadata = {
     type: 'website'
   }
 };
-
-import React from 'react';
-import Footer from '@/components/layout/Footer';
-import TechStack from '@/components/home/TechStack';
 
 export default function ServicesPage() {
   return (
