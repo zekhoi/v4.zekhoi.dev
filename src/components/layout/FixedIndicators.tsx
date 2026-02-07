@@ -52,7 +52,7 @@ export default function FixedIndicators() {
         <div className="flex flex-col gap-12 text-[10px] tracking-[0.5em] text-black/20 rotate-180 [writing-mode:vertical-lr] uppercase font-mono">
           <span>{`Core_System_${isOnline ? 'Online' : 'Offline'}`}</span>
           <div className="w-px h-16 bg-black/10 mx-auto"></div>
-          <span suppressHydrationWarning>Latency: {latency}ms</span>
+          <span>Latency: {isOnline ? latency : '0'}ms</span>
         </div>
       </div>
       <div className="fixed top-1/2 right-6 -translate-y-1/2 hidden xl:block z-50">
