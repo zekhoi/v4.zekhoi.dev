@@ -29,6 +29,7 @@ import React from 'react';
 import Scanline from '@/components/shared/Scanline';
 import BlueprintBg from '@/components/shared/BlueprintBg';
 import Navbar from '@/components/layout/Navbar';
+import FixedIndicators from '@/components/layout/FixedIndicators';
 import Footer from '@/components/layout/Footer';
 import TechStack from '@/components/home/TechStack';
 
@@ -38,6 +39,7 @@ export default function ServicesPage() {
       <Scanline />
       <BlueprintBg />
       <Navbar />
+      <FixedIndicators />
 
       <main className="relative z-10 min-h-screen pt-32 md:pt-48 pb-16 md:pb-32">
         <header className="max-w-7xl mx-auto px-6 md:px-12 pb-12 md:pb-24 border-b border-black/10 mb-12 md:mb-24">
@@ -297,35 +299,6 @@ export default function ServicesPage() {
           <Footer />
         </div>
       </main>
-
-      {/* Side Indicators specific to Services page */}
-      <div className="fixed top-1/2 left-6 -translate-y-1/2 hidden xl:block z-40">
-        <div className="flex flex-col gap-8 text-[10px] tracking-[0.5em] text-black/20 rotate-180 [writing-mode:vertical-lr] uppercase font-mono">
-          <span>Terminal_Output_Link</span>
-          <span>Security_Protocols_Active</span>
-          <span>Spec_v2.01_Beta</span>
-        </div>
-      </div>
-      <div className="fixed top-1/2 right-6 -translate-y-1/2 hidden xl:block z-40">
-        <div className="flex flex-col gap-8 text-[10px] tracking-[0.5em] text-black/20 [writing-mode:vertical-lr] uppercase font-mono">
-          <span>Protocol: HTTPS</span>
-          <span>Node_Cluster: Primary</span>
-          <span>Stack: Light_Industrial</span>
-        </div>
-      </div>
-
-      {/* Bottom fixed bar */}
-      <div className="fixed bottom-0 left-0 w-full z-40 p-6 md:p-8 pointer-events-none">
-        <div className="flex justify-between items-end w-full">
-          <div className="pointer-events-auto bg-white border border-black/10 p-2 text-[10px] uppercase font-mono shadow-sm">
-            Status:{' '}
-            <span className="text-blue-600 font-bold">SERVICES_ACTIVE</span>
-          </div>
-          <div className="pointer-events-auto text-[10px] text-black/40 rotate-180 [writing-mode:vertical-lr] font-mono tracking-widest">
-            © 2026 SERVICES_LOG
-          </div>
-        </div>
-      </div>
     </>
   );
 }

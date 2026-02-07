@@ -188,22 +188,6 @@ export default function ArchivePage() {
           <Footer />
         </div>
       </main>
-
-      {/* Side Indicators specific to Archive page */}
-      <div className="fixed top-1/2 left-6 -translate-y-1/2 hidden xl:block z-40">
-        <div className="flex flex-col gap-8 text-[10px] tracking-[0.5em] text-black/20 rotate-180 [writing-mode:vertical-lr] uppercase font-mono">
-          <span>Core_Archive_V2</span>
-          <span>Index: 42_Projects</span>
-          <span>FileSystem: NTFS_EMU</span>
-        </div>
-      </div>
-      <div className="fixed top-1/2 right-6 -translate-y-1/2 hidden xl:block z-40">
-        <div className="flex flex-col gap-8 text-[10px] tracking-[0.5em] text-black/20 [writing-mode:vertical-lr] uppercase font-mono">
-          <span>Scroll_To_Navigate</span>
-          <span>Status: Read_Only</span>
-          <span>Auth: Admin</span>
-        </div>
-      </div>
     </>
   );
 }

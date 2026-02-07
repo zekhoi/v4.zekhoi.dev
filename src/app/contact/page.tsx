@@ -20,6 +20,7 @@ import React from 'react';
 import Scanline from '@/components/shared/Scanline';
 import BlueprintBg from '@/components/shared/BlueprintBg';
 import Navbar from '@/components/layout/Navbar';
+import FixedIndicators from '@/components/layout/FixedIndicators';
 import Footer from '@/components/layout/Footer';
 
 export default function ContactPage() {
@@ -28,6 +29,7 @@ export default function ContactPage() {
       <Scanline />
       <BlueprintBg />
       <Navbar />
+      <FixedIndicators />
 
       <main className="relative z-10 pt-48 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -163,35 +165,6 @@ export default function ContactPage() {
           <Footer />
         </div>
       </main>
-
-      {/* Side Indicators specific to Contact page */}
-      <div className="fixed top-1/2 left-6 -translate-y-1/2 hidden xl:block z-40">
-        <div className="flex flex-col gap-8 text-[10px] tracking-[0.5em] text-black/20 rotate-180 [writing-mode:vertical-lr] uppercase font-mono">
-          <span>Core_System_Online</span>
-          <span>Latency: 24ms</span>
-          <span>Data_Buffer: Optimized</span>
-        </div>
-      </div>
-      <div className="fixed top-1/2 right-6 -translate-y-1/2 hidden xl:block z-40">
-        <div className="flex flex-col gap-8 text-[10px] tracking-[0.5em] text-black/20 [writing-mode:vertical-lr] uppercase font-mono">
-          <span>Version_Control: GIT</span>
-          <span>Deployment: Vercel</span>
-          <span>Framework: NextJS</span>
-        </div>
-      </div>
-
-      {/* Bottom fixed bar */}
-      <div className="fixed bottom-0 left-0 w-full z-40 p-6 md:p-8 pointer-events-none">
-        <div className="flex justify-between items-end w-full">
-          <div className="pointer-events-auto bg-white border border-black/10 p-2 text-[10px] uppercase font-mono shadow-sm">
-            Status:{' '}
-            <span className="text-blue-600 font-bold">DIRECTORY_LOADED</span>
-          </div>
-          <div className="pointer-events-auto text-[10px] text-black/40 rotate-180 [writing-mode:vertical-lr] font-mono tracking-widest">
-            © 2026 ALL RIGHTS RESERVED
-          </div>
-        </div>
-      </div>
     </>
   );
 }
