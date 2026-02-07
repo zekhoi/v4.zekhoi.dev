@@ -31,8 +31,8 @@ export async function sendEmail(_prevState: unknown, formData: FormData) {
   // 2. Send Email via Resend
   try {
     const { error } = await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>', // Update this with your verified domain later
-      to: ['me@zekhoi.dev'], // Your personal email
+      from: 'Portfolio Contact <website@zekhoi.dev>',
+      to: ['me@zekhoi.dev'],
       subject: `New Message from ${name}`,
       replyTo: email,
       text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`
