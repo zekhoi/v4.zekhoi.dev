@@ -26,8 +26,6 @@ const nextConfig: NextConfig = {
     optimizePackageImports: [
       'lucide-react',
       'radix-ui',
-      '@base-ui/react',
-      'class-variance-authority',
       'clsx',
       'tailwind-merge'
     ]
