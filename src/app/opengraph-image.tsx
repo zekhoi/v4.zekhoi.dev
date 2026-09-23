@@ -8,6 +8,14 @@ const NAME = ['KHOIRONI', 'KURNIA SYAH'];
 const ROLE = 'PRODUCT ENGINEER & AUTOMATION SPECIALIST';
 const TAGS = ['FRONTEND', 'BACKEND', 'AUTOMATION', 'DEVOPS', 'AI_SYSTEMS'];
 
+// RGB split behind the name, like the site's .glitch text-shadow. Drawn as
+// faint copies because the image renderer mishandles multiple text-shadows.
+const GLITCH = [
+  { x: 6, y: 0, color: 'rgba(255, 0, 0, 0.12)' },
+  { x: -3, y: -6, color: 'rgba(0, 255, 0, 0.12)' },
+  { x: 3, y: 6, color: 'rgba(0, 0, 255, 0.12)' }
+];
+
 // Downloads only the glyphs in `text`. Returns null on failure so a network
 // problem falls back to the default font instead of failing the build.
 async function loadGoogleFont(family: string, weight: number, text: string) {
@@ -116,17 +124,33 @@ export default async function OpengraphImage() {
         </div>
         <div
           style={{
+            position: 'relative',
             display: 'flex',
             flexDirection: 'column',
             fontFamily: 'Space Grotesk',
             fontSize: 128,
             fontWeight: 700,
             lineHeight: 0.9,
-            letterSpacing: -6,
-            textShadow:
-              '6px 0 0 rgba(255, 0, 0, 0.12), -3px -6px 0 rgba(0, 255, 0, 0.12), 3px 6px 0 rgba(0, 0, 255, 0.12)'
+            letterSpacing: -6
           }}
         >
+          {GLITCH.map(({ x, y, color }) => (
+            <div
+              key={color}
+              style={{
+                position: 'absolute',
+                left: x,
+                top: y,
+                display: 'flex',
+                flexDirection: 'column',
+                color
+              }}
+            >
+              {NAME.map((line) => (
+                <div key={line}>{line}</div>
+              ))}
+            </div>
+          ))}
           {NAME.map((line) => (
             <div key={line}>{line}</div>
           ))}
