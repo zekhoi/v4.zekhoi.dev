@@ -1,39 +1,7 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import MemLoad from './MemLoad';
 
 export default function Footer() {
-  const [memLoad, setMemLoad] = useState(0.12);
-
-  useEffect(() => {
-    const updateMemory = () => {
-      // Try to get real memory usage from Chrome/Chromium non-standard API
-      // @ts-expect-error - performance.memory is non-standard
-      if (window.performance && window.performance.memory) {
-        // @ts-expect-error - performance.memory is non-standard
-        const { usedJSHeapSize, jsHeapSizeLimit } = window.performance.memory;
-        // Calculate usage percentage
-        // If heap limit is very large, this might be small.
-        const percent = (usedJSHeapSize / jsHeapSizeLimit) * 100;
-        setMemLoad(percent);
-      } else {
-        // Fallback simulation for browsers without memory API coverage (Safari/Firefox)
-        // Fluctuate slightly to look alive
-        setMemLoad((prev) => {
-          const change = (Math.random() - 0.5) * 0.1;
-          const newValue = prev + change;
-          return Math.max(0.1, Math.min(2.5, newValue));
-        });
-      }
-    };
-
-    const interval = setInterval(updateMemory, 1000);
-    updateMemory(); // Initial call
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <footer className="w-full bg-white border-t border-black/10 pt-32 pb-24 px-6 md:px-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
@@ -105,7 +73,7 @@ export default function Footer() {
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-green-500"></span>SYS_V_4.0.0
             </span>
-            <span>MEM_LOAD: {memLoad.toFixed(2)}%</span>
+            <MemLoad />
           </div>
           <span>ZEKHOI_DEV / ARCH_CORE_v4</span>
         </div>

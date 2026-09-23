@@ -7,9 +7,10 @@ import PrivateProjectCard from '@/components/home/PrivateProjectCard';
 import ProjectPlaceholder from '@/components/home/ProjectPlaceholder';
 import { getOgImage } from '@/lib/og-image';
 import { PROJECTS } from '@/lib/data';
+import { OG_IMAGES } from '@/lib/metadata';
 
 export const metadata: Metadata = {
-  title: 'Works | Khoironi Kurnia Syah',
+  title: 'Works',
   description:
     'Portfolio of full-stack web projects including LMS platforms, AI automation tools, and responsive web applications.',
   keywords: [
@@ -29,7 +30,8 @@ export const metadata: Metadata = {
     description:
       'Portfolio of full-stack web projects and product development work.',
     url: 'https://zekhoi.dev/works',
-    type: 'website'
+    type: 'website',
+    images: OG_IMAGES
   }
 };
 
@@ -68,7 +70,8 @@ export default async function WorksPage() {
               </h1>
             </div>
             <div className="text-[10px] text-black/60 uppercase text-left md:text-right leading-relaxed tracking-widest mb-1 md:mb-2 font-mono w-full md:w-auto">
-              Displaying: 03 Curated Units
+              Displaying: {processedProjects.length.toString().padStart(2, '0')}{' '}
+              Curated Units
               <br />
               Filter: All_Architectures
             </div>

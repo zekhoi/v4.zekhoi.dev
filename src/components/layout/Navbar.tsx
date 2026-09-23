@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const navItems = [
@@ -10,6 +10,17 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const closeOnEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [isOpen]);
 
   return (
     <>
@@ -46,6 +57,7 @@ export default function Navbar() {
             </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
               className="md:hidden bg-white border border-black p-4 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,0.05)] z-50 relative active:translate-y-1 active:shadow-none transition-all"
             >
               {isOpen ? 'CLOSE' : 'MENU'}
@@ -56,7 +68,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 bg-white/95 backdrop-blur-md flex flex-col justify-center items-center md:hidden animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-40 bg-white/95 backdrop-blur-md flex flex-col justify-center items-center md:hidden">
           <div className="flex flex-col gap-6 text-center font-mono">
             {navItems.map((item) => (
               <Link

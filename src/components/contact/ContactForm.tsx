@@ -31,7 +31,10 @@ export default function ContactForm() {
         form.reset();
         setFeedback({ ok: true, text: 'Message sent successfully' });
       } else {
-        setFeedback({ ok: false, text: result.error ?? 'Something went wrong' });
+        setFeedback({
+          ok: false,
+          text: result.error ?? 'Something went wrong'
+        });
       }
       // Turnstile tokens are single-use, so always request a fresh one
       ref.current?.reset();
@@ -47,7 +50,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="group border-b border-black/10 md:border-r border-black/10 relative transition-colors bg-transparent hover:bg-black/[0.02]">
           <label
-            className="block text-[10px] text-black/40 p-4 tracking-[0.2em] uppercase transition-colors group-focus-within:text-black font-mono"
+            className="block text-[10px] text-black/60 p-4 tracking-[0.2em] uppercase transition-colors group-focus-within:text-black font-mono"
             htmlFor="name"
           >
             01 / NAME
@@ -63,7 +66,7 @@ export default function ContactForm() {
         </div>
         <div className="group border-b border-black/10 relative transition-colors bg-transparent hover:bg-black/[0.02]">
           <label
-            className="block text-[10px] text-black/40 p-4 tracking-[0.2em] uppercase transition-colors group-focus-within:text-black font-mono"
+            className="block text-[10px] text-black/60 p-4 tracking-[0.2em] uppercase transition-colors group-focus-within:text-black font-mono"
             htmlFor="email"
           >
             02 / EMAIL
@@ -80,7 +83,7 @@ export default function ContactForm() {
       </div>
       <div className="group border-b border-black/10 relative transition-colors bg-transparent hover:bg-black/[0.02]">
         <label
-          className="block text-[10px] text-black/40 p-4 tracking-[0.2em] uppercase transition-colors group-focus-within:text-black font-mono"
+          className="block text-[10px] text-black/60 p-4 tracking-[0.2em] uppercase transition-colors group-focus-within:text-black font-mono"
           htmlFor="message"
         >
           03 / MESSAGE
@@ -113,7 +116,7 @@ export default function ContactForm() {
           role="status"
           aria-live="polite"
           className={`mt-4 text-[10px] uppercase tracking-[0.2em] font-mono empty:hidden ${
-            feedback?.ok ? 'text-blue-600' : 'text-red-500'
+            feedback?.ok ? 'text-blue-600' : 'text-red-600'
           }`}
         >
           {feedback &&
@@ -122,7 +125,7 @@ export default function ContactForm() {
       </div>
 
       <div className="pt-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-        <p className="text-[10px] text-black/40 max-w-xs uppercase leading-relaxed tracking-widest font-mono">
+        <p className="text-[10px] text-black/60 max-w-xs uppercase leading-relaxed tracking-widest font-mono">
           By submitting this form, you acknowledge that your data will be
           transmitted via encrypted protocols for processing.
         </p>

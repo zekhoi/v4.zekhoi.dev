@@ -5,7 +5,6 @@
   --color-foreground: var(--foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
-  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
 
   /* Custom Design Tokens */
@@ -91,6 +90,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   width: 150vmax;
   height: 150vmax;
   pointer-events: none;
@@ -208,4 +208,18 @@
 
 .animate-pulse-dot {
   animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Error pages draw their own status overlays in the same spots */
+body:has([data-error-page]) [data-fixed-indicators] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

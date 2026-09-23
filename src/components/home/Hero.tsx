@@ -4,7 +4,12 @@ export default function Hero() {
   const scrollToContent = () => {
     const nextSection = document.getElementById('project-log');
     if (nextSection) {
-      nextSection.scrollIntoView({ behavior: 'smooth' });
+      const reduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches;
+      nextSection.scrollIntoView({
+        behavior: reduceMotion ? 'auto' : 'smooth'
+      });
     }
   };
 

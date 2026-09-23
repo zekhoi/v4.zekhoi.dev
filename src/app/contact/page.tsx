@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Footer from '@/components/layout/Footer';
 import ContactForm from '@/components/contact/ContactForm';
+import { OG_IMAGES } from '@/lib/metadata';
 
 export const metadata: Metadata = {
-  title: 'Contact | Khoironi Kurnia Syah',
+  title: 'Contact',
   description:
     'Get in touch with me for projects, consulting, or collaborations. Available for remote and global work.',
   alternates: {
@@ -14,7 +15,8 @@ export const metadata: Metadata = {
     description:
       "Available for projects, consulting, and collaborations. Let's build something amazing together.",
     url: 'https://zekhoi.dev/contact',
-    type: 'website'
+    type: 'website',
+    images: OG_IMAGES
   }
 };
 

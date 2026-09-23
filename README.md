@@ -6,7 +6,7 @@ Built with Next.js 16 (App Router), React 19, TypeScript and Tailwind CSS v4. De
 
 ## Getting started
 
-Requires Node >= 20.19.4 and pnpm.
+Requires Node >= 20.19.4 and pnpm. The pnpm version is pinned to 8.15.9 in `package.json`, and newer pnpm installs switch to it automatically.
 
 ```bash
 pnpm install
@@ -39,11 +39,14 @@ A husky pre-push hook runs lint and build.
 
 ```
 src/
-  app/          routes (/, /works, /archive, /services, /contact), server action, error pages
+  app/          routes (/, /works, /archive, /services, /contact), server action,
+                error pages, generated share image (opengraph-image.tsx)
   components/   home sections, layout chrome, contact form, shared visuals
-  lib/          project data (data.ts), og:image fetcher, utils
+  lib/          project data (data.ts), og:image fetcher, shared metadata
 ```
 
 Projects are listed in `src/lib/data.ts`. Public projects get their preview image from the linked site's `og:image` at build time.
+
+Icons come from Material Symbols, and only the icons listed in `ICON_NAMES` (`src/components/shared/MaterialSymbolsLoader.tsx`) are downloaded. Add an icon's name there when you use a new one.
 
 See [AGENTS.md](AGENTS.md) for conventions.

@@ -12,7 +12,7 @@ Personal portfolio for Khoironi Kurnia Syah, served at https://zekhoi.dev.
 
 ## Commands
 
-Use **pnpm** (engine-strict: Node >= 20.19.4, pnpm >= 8.15.9).
+Use **pnpm**. It is pinned to 8.15.9 through `packageManager` in `package.json` (newer pnpm switches to it automatically), which keeps `pnpm-lock.yaml` at lockfile v6. Node >= 20.19.4.
 
 ```bash
 pnpm dev     # local dev server
@@ -31,28 +31,30 @@ src/
     page.tsx          home (Hero, ProjectLog, ExperienceLog, Philosophy, Footer)
     works/ archive/ services/ contact/   other routes (each exports `metadata`)
     actions.ts        server action `sendEmail` (Turnstile verify -> Resend)
+    opengraph-image.tsx  social share image, generated at build time
     error.tsx, not-found.tsx
   components/
     home/             home sections and project cards
-    layout/           Navbar, Footer, FixedIndicators
+    layout/           Navbar, Footer, FixedIndicators, MemLoad
     contact/          ContactForm (client)
     shared/           Scanline, BlueprintBg, MaterialSymbolsLoader
   lib/
     data.ts           PROJECTS data (edit here to add or change projects)
-    og-image.ts       fetches og:image from project URLs at runtime
-    utils.ts          `cn()` (clsx + tailwind-merge)
+    og-image.ts       fetches og:image from project URLs at build time
+    metadata.ts       OG_IMAGES, shared by pages that set their own openGraph
 ```
 
 Import through the `@/` alias, which maps to `src/`.
 
 ## Conventions
 
-- Formatting: 2-space indent, single quotes, semicolons, no trailing commas.
+- Formatting: Prettier with `.prettierrc` (2-space indent, single quotes, semicolons, no trailing commas).
 - Components are default-exported PascalCase files. Add `'use client'` only when a component needs state, effects or browser APIs.
 - Visual style is brutalist "system console": monospace, uppercase labels written like identifiers (`PID_001`, `NODE_ACTIVE`, `View_Portal`), thin `border-black/10` lines, and a blueprint/scanline backdrop. Match it when adding UI.
-- Icons are Material Symbols loaded by `MaterialSymbolsLoader`. There is no icon package.
+- Icons are Material Symbols loaded by `MaterialSymbolsLoader`. There is no icon package. Only the names in its `ICON_NAMES` list are downloaded, so add a new icon's name there or it renders as plain text.
 - Style with Tailwind utility classes. Only put custom CSS in `globals.css` for effects that utilities can't express.
-- Every route sets its own `metadata` (title, description, canonical, openGraph).
+- Every route sets its own `metadata`: a short `title` (the root layout appends " | Khoironi Kurnia Syah"), description, canonical, and `openGraph` with `images: OG_IMAGES` (a page's `openGraph` replaces the root one, image included).
+- Animations are switched off globally for visitors with reduced motion turned on (`globals.css`), so nothing may rely on an animation to position an element.
 
 ## Environment
 

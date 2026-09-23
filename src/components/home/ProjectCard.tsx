@@ -27,7 +27,7 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
           ) : (
             <ProjectPlaceholder
               title={project.title}
-              unit={project.pid.split('_')[0]} // Extract Unit ID roughly
+              unit={project.pid}
               year={project.year}
             />
           )}

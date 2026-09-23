@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Footer from '@/components/layout/Footer';
+import { OG_IMAGES } from '@/lib/metadata';
 
 export const metadata: Metadata = {
-  title: 'Archive | Khoironi Kurnia Syah',
+  title: 'Archive',
   description:
     'Archive of past projects and technical explorations. A comprehensive history of my work across various technologies and domains.',
   alternates: {
@@ -13,7 +14,8 @@ export const metadata: Metadata = {
     title: 'Archive | Khoironi Kurnia Syah',
     description: 'Archive of past projects and technical explorations.',
     url: 'https://zekhoi.dev/archive',
-    type: 'website'
+    type: 'website',
+    images: OG_IMAGES
   }
 };
 

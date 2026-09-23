@@ -15,11 +15,6 @@ const nextConfig: NextConfig = {
   // Production source maps disabled for smaller bundle
   productionBrowserSourceMaps: false,
 
-  // Optimize font loading and tree-shake unused code
-  experimental: {
-    optimizePackageImports: ['clsx', 'tailwind-merge']
-  },
-
   // Cache headers for static assets
   onDemandEntries: {
     maxInactiveAge: 60 * 1000,

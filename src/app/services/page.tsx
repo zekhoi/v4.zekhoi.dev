@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Footer from '@/components/layout/Footer';
 import TechStack from '@/components/home/TechStack';
+import { OG_IMAGES } from '@/lib/metadata';
 
 export const metadata: Metadata = {
-  title: 'Services | Khoironi Kurnia Syah',
+  title: 'Services',
   description:
     'Technical consulting and development services including system architecture, backend development, and performance optimization.',
   keywords: [
@@ -23,7 +24,8 @@ export const metadata: Metadata = {
     description:
       'Technical consulting and development services for high-performance systems.',
     url: 'https://zekhoi.dev/services',
-    type: 'website'
+    type: 'website',
+    images: OG_IMAGES
   }
 };
 

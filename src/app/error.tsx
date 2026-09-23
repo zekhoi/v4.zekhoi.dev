@@ -15,7 +15,10 @@ export default function Error({
 
   return (
     <>
-      <main className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center p-6 pt-24 md:pt-0">
+      <main
+        data-error-page
+        className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center p-6 pt-24 md:pt-0"
+      >
         <div className="w-full max-w-6xl">
           <div className="mb-8">
             <span className="text-xs font-bold tracking-[0.5em] text-black/40 uppercase block mb-2 font-mono">
@@ -31,7 +34,7 @@ export default function Error({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             {/* Terminal Section */}
             <div className="lg:col-span-8 border border-black/10 bg-white/50 backdrop-blur-sm p-1 relative h-[400px] lg:h-auto">
-              <div className="bg-black/5 h-full p-6 font-mono text-[11px] leading-relaxed overflow-y-auto terminal-scroll">
+              <div className="bg-black/5 h-full p-6 font-mono text-[11px] leading-relaxed overflow-y-auto">
                 <div className="flex items-center gap-2 mb-4 border-b border-black/10 pb-2">
                   <span className="material-symbols-outlined text-sm">
                     terminal
@@ -127,7 +130,7 @@ export default function Error({
           <span className="font-bold text-red-600">CRITICAL_FAULT</span>
         </div>
         <div className="pointer-events-auto text-[10px] text-black/40 rotate-180 [writing-mode:vertical-lr] tracking-widest uppercase font-mono">
-          © 2024 SYSTEM_CORE_DUMP
+          © {new Date().getFullYear()} SYSTEM_CORE_DUMP
         </div>
       </div>
 

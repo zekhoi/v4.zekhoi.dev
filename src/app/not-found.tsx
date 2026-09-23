@@ -1,4 +1,9 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Page Not Found'
+};
 
 export default function NotFound() {
   return (
@@ -17,11 +22,14 @@ export default function NotFound() {
           </div>
         </div>
         <div className="pointer-events-auto text-[10px] text-black/40 rotate-180 [writing-mode:vertical-lr] tracking-widest uppercase">
-          © 2024 TERMINAL_NULL
+          © {new Date().getFullYear()} TERMINAL_NULL
         </div>
       </div>
 
-      <main className="relative z-10 w-full h-screen flex flex-col items-center justify-center p-6">
+      <main
+        data-error-page
+        className="relative z-10 w-full h-screen flex flex-col items-center justify-center p-6"
+      >
         <div className="max-w-4xl w-full flex flex-col items-center text-center space-y-12">
           {/* 3D Wireframe */}
           <div className="relative wireframe-container py-12">
@@ -77,7 +85,7 @@ export default function NotFound() {
 
           <div className="flex flex-col items-center gap-6 pt-8">
             <Link
-              className="terminal-btn group border border-black bg-white px-8 py-4 text-sm font-bold tracking-[0.2em] transition-all hover:bg-black hover:text-white relative"
+              className="group border border-black bg-white px-8 py-4 text-sm font-bold tracking-[0.2em] transition-all hover:bg-black hover:text-white relative"
               href="/"
             >
               <span className="relative z-10">[ RETURN_TO_ORIGIN ]</span>

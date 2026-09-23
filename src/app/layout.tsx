@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono, Space_Grotesk, Inter } from 'next/font/google';
+import { Geist_Mono, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 
 import Scanline from '@/components/shared/Scanline';
@@ -14,18 +14,6 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true
 };
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap'
-});
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-  display: 'swap'
-});
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
@@ -45,7 +33,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     default: 'Khoironi Kurnia Syah | Product Engineer',
-    template: '%s | zekhoi.dev'
+    template: '%s | Khoironi Kurnia Syah'
   },
   description:
     'Product Engineer. Building high-performance products and scalable systems with modern technologies. Available for consulting and projects.',
@@ -148,7 +136,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en">
       <head>
         <MaterialSymbolsLoader />
         <script
@@ -157,7 +145,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased bg-background-light font-mono text-black selection:bg-black selection:text-white overflow-x-hidden cursor-crosshair`}
+        className={`${geistMono.variable} ${spaceGrotesk.variable} antialiased bg-background-light font-mono text-black selection:bg-black selection:text-white overflow-x-hidden cursor-crosshair`}
       >
         <Scanline />
         <BlueprintBg />

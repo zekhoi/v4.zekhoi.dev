@@ -56,7 +56,7 @@ export default function FixedIndicators() {
   const latency = useLatency(isOnline);
 
   return (
-    <>
+    <div data-fixed-indicators>
       <div className="fixed bottom-0 left-0 w-full z-40 p-6 md:p-12 pointer-events-none">
         <div className="flex justify-between items-end w-full">
           <div className="pointer-events-auto bg-white border border-black/10 p-2 text-[10px] uppercase font-mono shadow-[2px_2px_0px_0px_rgba(0,0,0,0.05)]">
@@ -86,6 +86,6 @@ export default function FixedIndicators() {
           <span>Build_State: Stable</span>
         </div>
       </div>
-    </>
+    </div>
   );
 }
