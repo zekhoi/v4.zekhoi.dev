@@ -70,11 +70,7 @@ export default function PrivateProjectCard({
   }
 
   return (
-    <article
-      className={`group relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-start ${
-        orderReverse ? '' : ''
-      }`}
-    >
+    <article className="group relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
       {/* Image Section - Restricted */}
       <div className={`lg:col-span-8 ${orderReverse ? 'lg:order-2' : ''}`}>
         <div className="border border-black p-1 bg-white relative overflow-hidden">

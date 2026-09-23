@@ -6,17 +6,6 @@ const config = {
   changefreq: 'weekly',
   priority: 0.7,
   sitemapSize: 50000,
-  exclude: ['/admin', '/.next'],
-  robotsTxtOptions: {
-    policies: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/admin', '/.next']
-      }
-    ],
-    additionalSitemaps: []
-  },
   alternateRefs: []
 };
 

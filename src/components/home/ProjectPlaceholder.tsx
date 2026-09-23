@@ -93,9 +93,6 @@ export default function ProjectPlaceholder({
         .transform-style-3d {
           transform-style: preserve-3d;
         }
-        .translate-z-12 {
-          transform: translateZ(48px);
-        }
         @keyframes tumble {
           0% { transform: rotateX(0deg) rotateY(0deg); }
           100% { transform: rotateX(360deg) rotateY(360deg); }
