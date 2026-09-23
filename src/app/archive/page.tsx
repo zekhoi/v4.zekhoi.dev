@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Footer from '@/components/layout/Footer';
+import { ARCHIVE } from '@/lib/data';
 import { OG_IMAGES } from '@/lib/metadata';
 
 export const metadata: Metadata = {
   title: 'Archive',
   description:
-    'Archive of past projects and technical explorations. A comprehensive history of my work across various technologies and domains.',
+    'Archive of side projects, experiments, and open-source work since 2021.',
   alternates: {
     canonical: 'https://zekhoi.dev/archive'
   },
@@ -18,79 +19,6 @@ export const metadata: Metadata = {
     images: OG_IMAGES
   }
 };
-
-const ARCHIVE_ITEMS = [
-  {
-    year: '2024',
-    name: 'Neon-Cloud OS',
-    stack: 'Next.js, Rust, WebAssembly, Tailwind',
-    link: '#',
-    linkText: 'GitHub'
-  },
-  {
-    year: '2024',
-    name: 'Synthesis Design System',
-    stack: 'React, Radix UI, Framer Motion',
-    link: '#',
-    linkText: 'Live'
-  },
-  {
-    year: '2023',
-    name: 'Void Analytics Engine',
-    stack: 'D3.js, Three.js, PostgreSQL',
-    link: '#',
-    linkText: 'GitHub'
-  },
-  {
-    year: '2023',
-    name: 'Grid P2P Protocol',
-    stack: 'WebRTC, Socket.io, Node.js',
-    link: null,
-    linkText: 'N/A'
-  },
-  {
-    year: '2022',
-    name: 'Onyx Terminal Emulator',
-    stack: 'C++, Electron, xterm.js',
-    link: '#',
-    linkText: 'Source'
-  },
-  {
-    year: '2022',
-    name: 'Kinetik Shader Library',
-    stack: 'GLSL, WebGL, Vanilla JS',
-    link: '#',
-    linkText: 'Demo'
-  },
-  {
-    year: '2021',
-    name: 'Flux State Manager',
-    stack: 'TypeScript, Redux, RxJS',
-    link: '#',
-    linkText: 'GitHub'
-  },
-  {
-    year: '2021',
-    name: 'Neural-Grid CSS Framework',
-    stack: 'SCSS, PostCSS, Gulp',
-    link: '#',
-    linkText: 'Docs'
-  },
-  {
-    year: '2020',
-    name: 'Legacy Portfolio v2',
-    stack: 'Gatsby, GraphQL, Contentful',
-    link: '#',
-    linkText: 'Live'
-  },
-  {
-    year: '2019',
-    name: 'Static-Pulse Generator',
-    stack: 'Python, Flask, Jinja2',
-    link: '#',
-    linkText: 'GitHub'
-  }
-];
 
 export default function ArchivePage() {
   return (
@@ -110,8 +38,8 @@ export default function ArchivePage() {
             </div>
             <div className="text-left md:text-right w-full md:w-auto">
               <p className="text-sm max-w-sm text-black/60 leading-relaxed uppercase font-mono">
-                A complete chronological index of experiments, open-source
-                contributions, and legacy builds since 2018.
+                A chronological index of side projects, experiments, and
+                open-source work since 2021.
               </p>
             </div>
           </div>
@@ -136,9 +64,9 @@ export default function ArchivePage() {
               </tr>
             </thead>
             <tbody className="text-xs md:text-sm">
-              {ARCHIVE_ITEMS.map((item, index) => (
+              {ARCHIVE.map((item) => (
                 <tr
-                  key={index}
+                  key={item.name}
                   className="hover:bg-black/5 border-b border-black/10 transition-colors"
                 >
                   <td className="py-6 px-4 tabular-nums">{item.year}</td>
@@ -150,6 +78,8 @@ export default function ArchivePage() {
                     {item.link ? (
                       <Link
                         href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 hover:underline group"
                       >
                         {item.linkText}
@@ -170,7 +100,7 @@ export default function ArchivePage() {
         <div className="mt-12 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-black/40 tracking-[0.2em] uppercase font-mono">
           <div className="flex gap-8">
             <span>END_OF_LIST</span>
-            <span>TOTAL_BYTES: 4.2MB</span>
+            <span>ENTRIES [{ARCHIVE.length.toString().padStart(2, '0')}]</span>
           </div>
           <span>AUTO_REFRESH: OFF / PAGE_01_OF_01</span>
         </div>

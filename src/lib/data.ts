@@ -78,3 +78,92 @@ export const PROJECTS: ProjectItem[] = [
     image: null
   }
 ];
+
+export interface ArchiveItem {
+  year: string;
+  name: string;
+  stack: string;
+  link: string | null;
+  linkText: string;
+}
+
+// Side projects from github.com/zekhoi, newest first (year the repo was created)
+export const ARCHIVE: ArchiveItem[] = [
+  {
+    year: '2025',
+    name: 'Twikit Custom',
+    stack: 'Python',
+    link: 'https://github.com/zekhoi/twikit-custom',
+    linkText: 'GitHub'
+  },
+  {
+    year: '2024',
+    name: 'Instagram Suspension Checker',
+    stack: 'TypeScript',
+    link: 'https://github.com/zekhoi/instagram-account-suspension-checker',
+    linkText: 'GitHub'
+  },
+  {
+    year: '2023',
+    name: 'GSMaP Downloader',
+    stack: 'Python',
+    link: 'https://github.com/zekhoi/gsmap-downloader',
+    linkText: 'GitHub'
+  },
+  {
+    year: '2023',
+    name: 'Rails Chat App',
+    stack: 'Ruby on Rails',
+    link: 'https://github.com/zekhoi/ror-chatapp',
+    linkText: 'GitHub'
+  },
+  {
+    year: '2022',
+    name: 'Portfolio v3',
+    stack: 'Next.js, TypeScript, Tailwind',
+    link: 'https://github.com/zekhoi/v3.zekhoi.dev',
+    linkText: 'GitHub'
+  },
+  {
+    year: '2022',
+    name: 'Booku',
+    stack: 'TypeScript',
+    link: 'https://github.com/zekhoi/fe-test-sejutacita',
+    linkText: 'GitHub'
+  },
+  {
+    year: '2022',
+    name: 'Webshot',
+    stack: 'JavaScript',
+    link: 'https://github.com/zekhoi/webshot',
+    linkText: 'GitHub'
+  },
+  {
+    year: '2022',
+    name: 'Seminar Calendar',
+    stack: 'JavaScript',
+    link: 'https://github.com/zekhoi/seminar-calendar',
+    linkText: 'GitHub'
+  },
+  {
+    year: '2022',
+    name: 'Auto Invite GitHub Member',
+    stack: 'JavaScript',
+    link: 'https://github.com/zekhoi/auto-invite-github-member',
+    linkText: 'GitHub'
+  },
+  {
+    year: '2021',
+    name: 'Corona Tracker',
+    stack: 'Next.js, Mapbox',
+    link: 'https://github.com/zekhoi/corona',
+    linkText: 'GitHub'
+  },
+  {
+    year: '2021',
+    name: 'SIR Epidemic Model',
+    stack: 'Python, Jupyter',
+    link: 'https://github.com/zekhoi/sirepidemic',
+    linkText: 'GitHub'
+  }
+];

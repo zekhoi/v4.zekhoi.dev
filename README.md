@@ -45,7 +45,7 @@ src/
   lib/          project data (data.ts), og:image fetcher, shared metadata
 ```
 
-Projects are listed in `src/lib/data.ts`. Public projects get their preview image from the linked site's `og:image` at build time.
+Projects are listed in `src/lib/data.ts`: `PROJECTS` feeds /works and the home page, and `ARCHIVE` (side projects) feeds /archive. Public projects get their preview image from the linked site's `og:image` at build time.
 
 Icons come from Material Symbols, and only the icons listed in `ICON_NAMES` (`src/components/shared/MaterialSymbolsLoader.tsx`) are downloaded. Add an icon's name there when you use a new one.
 

@@ -131,7 +131,6 @@ export default function RootLayout({
       'React',
       'Next.js',
       'Node.js',
-      'Rust',
       'System Architecture',
       'Database Design',
       'DevOps'
