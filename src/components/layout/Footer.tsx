@@ -26,7 +26,7 @@ export default function Footer() {
                 id: '01',
                 label: 'LINKEDIN',
                 sub: '@KHOIRONIKS',
-                href: 'https://linkedin.com/in/khoironiks'
+                href: 'https://www.linkedin.com/in/khoironiks'
               },
               {
                 id: '02',
@@ -44,14 +44,15 @@ export default function Footer() {
                 id: '04',
                 label: 'EMAIL',
                 sub: 'CONTACT_ME',
-                href: 'mailto:khoironidev@gmail.com'
+                href: 'mailto:me@zekhoi.dev'
               }
             ].map((item) => (
               <Link
                 key={item.id}
                 className="brutalist-card bg-white p-8 flex flex-col justify-between aspect-square group font-mono"
                 href={item.href}
-                target="_blank"
+                // A mailto link in a new tab leaves an empty tab behind
+                target={item.href.startsWith('mailto:') ? undefined : '_blank'}
               >
                 <span className="text-[10px] text-black/40 font-bold uppercase tracking-widest">
                   {item.id} / {item.label}

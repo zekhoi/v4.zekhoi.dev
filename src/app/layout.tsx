@@ -122,7 +122,10 @@ export default function RootLayout({
     url: 'https://zekhoi.dev',
     jobTitle: 'Product Engineer',
     email: 'me@zekhoi.dev',
-    sameAs: ['https://github.com/zekhoi', 'https://linkedin.com/in/zekhoi'],
+    sameAs: [
+      'https://github.com/zekhoi',
+      'https://www.linkedin.com/in/khoironiks'
+    ],
     knowsAbout: [
       'TypeScript',
       'React',
