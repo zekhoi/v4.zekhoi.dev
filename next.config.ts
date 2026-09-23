@@ -23,12 +23,7 @@ const nextConfig: NextConfig = {
 
   // Optimize font loading and tree-shake unused code
   experimental: {
-    optimizePackageImports: [
-      'lucide-react',
-      'radix-ui',
-      'clsx',
-      'tailwind-merge'
-    ]
+    optimizePackageImports: ['clsx', 'tailwind-merge']
   },
 
   // Cache headers for static assets

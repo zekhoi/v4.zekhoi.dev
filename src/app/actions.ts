@@ -4,28 +4,58 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function getField(formData: FormData, key: string) {
+  const value = formData.get(key);
+  return typeof value === 'string' ? value.trim() : '';
+}
+
 export async function sendEmail(_prevState: unknown, formData: FormData) {
-  const token = formData.get('cf-turnstile-response') as string;
-  const name = formData.get('name') as string;
-  const email = formData.get('email') as string;
-  const message = formData.get('message') as string;
+  if (!process.env.TURNSTILE_SECRET_KEY || !process.env.RESEND_API_KEY) {
+    console.error('sendEmail: missing TURNSTILE_SECRET_KEY or RESEND_API_KEY');
+    return { success: false, error: 'Contact form is not configured' };
+  }
+
+  const token = getField(formData, 'cf-turnstile-response');
+  const name = getField(formData, 'name');
+  const email = getField(formData, 'email');
+  const message = getField(formData, 'message');
+
+  // 0. Validate input
+  if (!token) {
+    return { success: false, error: 'Invalid CAPTCHA' };
+  }
+  if (!name || name.length > 100 || /[\r\n]/.test(name)) {
+    return { success: false, error: 'Invalid name' };
+  }
+  if (email.length > 254 || !EMAIL_PATTERN.test(email)) {
+    return { success: false, error: 'Invalid email' };
+  }
+  if (!message || message.length > 5000) {
+    return { success: false, error: 'Message must be 1-5000 characters' };
+  }
 
   // 1. Verify Turnstile Token
-  const verifyRes = await fetch(
-    'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        secret: process.env.TURNSTILE_SECRET_KEY,
-        response: token
-      })
-    }
-  );
+  try {
+    const verifyRes = await fetch(
+      'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          secret: process.env.TURNSTILE_SECRET_KEY,
+          response: token
+        })
+      }
+    );
 
-  const verifyData = await verifyRes.json();
-  if (!verifyData.success) {
-    return { success: false, error: 'Invalid CAPTCHA' };
+    const verifyData = await verifyRes.json();
+    if (!verifyData.success) {
+      return { success: false, error: 'Invalid CAPTCHA' };
+    }
+  } catch {
+    return { success: false, error: 'CAPTCHA verification failed' };
   }
 
   // 2. Send Email via Resend

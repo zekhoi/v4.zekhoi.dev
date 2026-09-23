@@ -119,9 +119,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1
     }
-  },
-  verification: {
-    google: 'google-site-verification=YOUR_CODE'
   }
 };
 
