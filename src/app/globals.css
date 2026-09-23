@@ -215,6 +215,21 @@ body:has([data-error-page]) [data-fixed-indicators] {
   display: none;
 }
 
+/*
+ * Google's icon stylesheet sets font-size: 24px outside any cascade layer,
+ * which beats Tailwind's layered text-* classes. Hand font-size back to the
+ * layers so text-* classes size icons, with 24px as the default.
+ */
+@layer base {
+  .material-symbols-outlined {
+    font-size: 24px;
+  }
+}
+
+html .material-symbols-outlined {
+  font-size: revert-layer;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

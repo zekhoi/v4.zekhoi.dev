@@ -37,11 +37,12 @@ export default function NotFound() {
               <div className="gyro-ring gyro-ring-outer"></div>
               <div className="gyro-ring gyro-ring-mid"></div>
               <div className="gyro-ring gyro-ring-inner"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="material-symbols-outlined text-red-600/50 text-6xl animate-pulse">
-                  warning
-                </span>
-              </div>
+            </div>
+            {/* Outside the 3D rings, which otherwise hide it */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="material-symbols-outlined text-red-600/50 text-6xl animate-pulse">
+                warning
+              </span>
             </div>
           </div>
 
