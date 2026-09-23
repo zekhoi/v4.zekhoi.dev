@@ -35,6 +35,9 @@ export const metadata: Metadata = {
   }
 };
 
+// Re-fetch project preview images daily instead of only at deploy
+export const revalidate = 86400;
+
 export default async function WorksPage() {
   // Fetch og:images for public projects at runtime
   const processedProjects = await Promise.all(

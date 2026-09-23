@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   }
 };
 
+// Re-fetch project preview images daily instead of only at deploy
+export const revalidate = 86400;
+
 export default function Home() {
   return (
     <main className="relative z-10 min-h-screen flex flex-col items-center">
