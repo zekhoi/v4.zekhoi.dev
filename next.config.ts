@@ -27,7 +27,10 @@ const nextConfig: NextConfig = {
   },
 
   // Use Turbopack for faster builds (Next.js 16 default)
-  turbopack: {}
+  turbopack: {
+    // Pin the root so a stray lockfile in a parent directory isn't picked up
+    root: __dirname
+  }
 };
 
 export default nextConfig;

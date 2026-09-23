@@ -6,33 +6,36 @@ import { sendEmail } from '@/app/actions';
 
 export default function ContactForm() {
   const ref = useRef<TurnstileInstance>(null);
-  const [status, setStatus] = useState<
-    'idle' | 'verifying' | 'success' | 'error'
-  >('idle');
+  const [feedback, setFeedback] = useState<{
+    ok: boolean;
+    text: string;
+  } | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!token) {
-      alert('Please complete the verification check.');
+      setFeedback({ ok: false, text: 'Complete the verification check' });
       return;
     }
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     formData.append('cf-turnstile-response', token);
+    setFeedback(null);
 
     startTransition(async () => {
       const result = await sendEmail(null, formData);
       if (result.success) {
-        alert('Message sent successfully!');
-        // Reset form
-        (e.target as HTMLFormElement).reset();
-        ref.current?.reset();
-        setToken(null);
+        form.reset();
+        setFeedback({ ok: true, text: 'Message sent successfully' });
       } else {
-        alert(result.error);
+        setFeedback({ ok: false, text: result.error ?? 'Something went wrong' });
       }
+      // Turnstile tokens are single-use, so always request a fresh one
+      ref.current?.reset();
+      setToken(null);
     });
   };
 
@@ -99,12 +102,23 @@ export default function ContactForm() {
             process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ||
             '1x00000000000000000000AA'
           }
-          onSuccess={(token) => {
-            setToken(token);
-            setStatus('success');
+          onSuccess={setToken}
+          onExpire={() => setToken(null)}
+          onError={() => {
+            setToken(null);
+            setFeedback({ ok: false, text: 'Verification failed, retry' });
           }}
-          onError={() => setStatus('error')}
         />
+        <p
+          role="status"
+          aria-live="polite"
+          className={`mt-4 text-[10px] uppercase tracking-[0.2em] font-mono empty:hidden ${
+            feedback?.ok ? 'text-blue-600' : 'text-red-500'
+          }`}
+        >
+          {feedback &&
+            `${feedback.ok ? 'TX_OK' : 'TX_ERR'} // ${feedback.text}`}
+        </p>
       </div>
 
       <div className="pt-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
