@@ -39,8 +39,8 @@ src/
     contact/          ContactForm (client)
     shared/           Scanline, BlueprintBg, MaterialSymbolsLoader
   lib/
-    data.ts           PROJECTS data (edit here to add or change projects)
-    og-image.ts       fetches og:image from project URLs at build time
+    data.ts           PROJECTS (/works) and ARCHIVE (/archive); edit here to add or change projects
+    og-image.ts       fetches og:image from project URLs (at build, then daily via `revalidate` on / and /works)
     metadata.ts       OG_IMAGES, shared by pages that set their own openGraph
 ```
 
@@ -51,7 +51,7 @@ Import through the `@/` alias, which maps to `src/`.
 - Formatting: Prettier with `.prettierrc` (2-space indent, single quotes, semicolons, no trailing commas).
 - Components are default-exported PascalCase files. Add `'use client'` only when a component needs state, effects or browser APIs.
 - Visual style is brutalist "system console": monospace, uppercase labels written like identifiers (`PID_001`, `NODE_ACTIVE`, `View_Portal`), thin `border-black/10` lines, and a blueprint/scanline backdrop. Match it when adding UI.
-- Icons are Material Symbols loaded by `MaterialSymbolsLoader`. There is no icon package. Only the names in its `ICON_NAMES` list are downloaded, so add a new icon's name there or it renders as plain text.
+- Icons are Material Symbols loaded by `MaterialSymbolsLoader`. There is no icon package. Only the names in its `ICON_NAMES` list are downloaded, so add a new icon's name there or it renders as plain text. Size icons with `text-*` classes (default 24px); `globals.css` makes those win over Google's stylesheet.
 - Style with Tailwind utility classes. Only put custom CSS in `globals.css` for effects that utilities can't express.
 - Every route sets its own `metadata`: a short `title` (the root layout appends " | Khoironi Kurnia Syah"), description, canonical, and `openGraph` with `images: OG_IMAGES` (a page's `openGraph` replaces the root one, image included).
 - Animations are switched off globally for visitors with reduced motion turned on (`globals.css`), so nothing may rely on an animation to position an element.
