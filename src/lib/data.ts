@@ -20,7 +20,7 @@ export const PROJECTS: ProjectItem[] = [
     description:
       'Private application for automating social media scheduling and posting. Built scheduling dashboard with calendar interface, content management tools, and analytics integration. Implemented automation workflows for multiple social platforms.',
     tags: ['REACT', 'TYPESCRIPT', 'EXPRESS', 'CRON_JOBS'],
-    year: '0',
+    year: 'REDACTED',
     link: '#',
     linkText: 'Private_Access',
     image: null

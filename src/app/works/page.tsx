@@ -108,6 +108,7 @@ export default async function WorksPage() {
                         alt={item.title}
                         src={item.ogImage}
                         fill
+                        unoptimized
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 100vw"
                         priority={index < 2} // Prioritize first 2 images
                       />

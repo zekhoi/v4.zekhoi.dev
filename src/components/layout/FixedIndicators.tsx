@@ -18,18 +18,42 @@ function useOnlineStatus() {
   return isOnline;
 }
 
-export default function FixedIndicators() {
-  const [latency, setLatency] = useState(24);
-  const isOnline = useOnlineStatus();
+const PING_INTERVAL_MS = 5000;
+
+function useLatency(enabled: boolean) {
+  const [latency, setLatency] = useState<number | null>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      // Simulate realistic latency fluctuations between 1ms and 45ms
-      setLatency(Math.floor(Math.random() * (45 - 1 + 1) + 1));
-    }, 2000);
+    if (!enabled) return;
 
-    return () => clearInterval(interval);
-  }, []);
+    let cancelled = false;
+
+    const ping = async () => {
+      if (document.visibilityState !== 'visible') return;
+      const start = performance.now();
+      try {
+        await fetch('/favicon.ico', { method: 'HEAD', cache: 'no-store' });
+        if (!cancelled) setLatency(Math.round(performance.now() - start));
+      } catch {
+        if (!cancelled) setLatency(null);
+      }
+    };
+
+    ping();
+    const interval = setInterval(ping, PING_INTERVAL_MS);
+
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+    };
+  }, [enabled]);
+
+  return enabled ? latency : null;
+}
+
+export default function FixedIndicators() {
+  const isOnline = useOnlineStatus();
+  const latency = useLatency(isOnline);
 
   return (
     <>
@@ -52,7 +76,7 @@ export default function FixedIndicators() {
         <div className="flex flex-col gap-12 text-[10px] tracking-[0.5em] text-black/20 rotate-180 [writing-mode:vertical-lr] uppercase font-mono">
           <span>{`Core_System_${isOnline ? 'Online' : 'Offline'}`}</span>
           <div className="w-px h-16 bg-black/10 mx-auto"></div>
-          <span>Latency: {isOnline ? latency : '0'}ms</span>
+          <span>Latency: {latency ?? '--'}ms</span>
         </div>
       </div>
       <div className="fixed top-1/2 right-6 -translate-y-1/2 hidden xl:block z-50">
